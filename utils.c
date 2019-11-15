@@ -1,37 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_uxx.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 16:49:58 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 18:32:49 by lnezonde         ###   ########.fr       */
+/*   Created: 2019/11/15 18:21:15 by lnezonde          #+#    #+#             */
+/*   Updated: 2019/11/15 18:22:46 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	print_uxx(unsigned int nb, int type, t_data_stock data)
+void	ft_putchar(char c, int fd)
 {
-	return (0);
-}
-
-void	ft_putnbr_base(long nb, char *base)
-{
-	int		i;
-	int		tmp;
-	char	c;
-
-	i = 0;
-	while (base[i])
-		i++;
-	tmp = nb / i;
-	c = base[nb % i];
-	if (tmp != 0)
-	{
-		nb = nb / i;
-		ft_putnbr_base(nb, base);
-	}
-	ft_putchar(c);
+	write(1, &c, 1);
 }

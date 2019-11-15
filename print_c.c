@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:00:29 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 17:00:39 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/15 18:21:03 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	print_c(char c, t_data_stock data)
 {
+	ft_putchar(c);
 	return (0);
 }

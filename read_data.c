@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:56:28 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 17:05:31 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/15 18:20:18 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,19 @@ static int		which_nb(const char **str)
 
 static int		which_width(const char **str, char *data_dir, va_list param)
 {
-	const char *width;
+	int width;
 
+	width = 0;
 	if (**str == '*')
 	{
 		(*str)++;
-		width = make_nbr_di(va_arg(param, int), "0123456789");
-		if (width[0] == '-')
+		width = va_arg(param, int);
+		if (width < 0)
 		{
 			*data_dir = '-';
-			width++;
+			width *= -1;
 		}
-		return (which_nb(&width));
+		return (width);
 	}
 	return (which_nb(str));
 }
@@ -66,6 +67,18 @@ static int		which_precision(const char **str, va_list param)
 	return (which_nb(str));
 }
 
+int				read_zero(char c, char *data_zero, char data_dir)
+{
+	if (c == '0')
+	{
+		*data_zero = '0';
+		return (1);
+	}
+	if (data_dir == '-' && *data_zero == '0')
+		*data_zero = ' ';
+	return (0);
+}
+
 t_data_stock	read_data(const char **str, va_list param)
 {
 	t_data_stock	data;
@@ -79,18 +92,10 @@ t_data_stock	read_data(const char **str, va_list param)
 	i = 0;
 	while (**str && !istype(**str))
 	{
-		if (**str == '-')
-		{
+		if (**str == '-' && ((*str)++))
 			data.dir = '-';
+		else if (read_zero(**str, &data.zero, data.dir))
 			(*str)++;
-		}
-		else if (**str == '0')
-		{
-			data.zero = '0';
-			if (data.dir == '-')
-				data.zero = ' ';
-			(*str)++;
-		}
 		else if ((**str > '0' && **str <= '9') || **str == '*')
 			data.width = which_width(str, &data.dir, param);
 		else if (**str == '.')
@@ -99,9 +104,6 @@ t_data_stock	read_data(const char **str, va_list param)
 			(*str)++;
 	}
 	if (istype(**str) == 1)
-	{
-		data.type = **str;
-		(*str)++;
-	}
+		data.type = *(*str)++;
 	return (data);
 }
