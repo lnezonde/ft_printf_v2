@@ -6,14 +6,18 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:00:29 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 18:21:03 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/16 17:15:41 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_c(char c, t_data_stock data)
+int			print_c(char c, t_data_stock data)
 {
+	if (data.width > 1 && data.dir == '+')
+		print_zeros(data.width, ' ');
 	ft_putchar(c);
+	if (data.width > 1 && data.dir == '-')
+		print_zeros(data.width, ' ');
 	return (0);
 }

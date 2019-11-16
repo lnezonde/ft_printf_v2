@@ -6,16 +6,11 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:49:58 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 18:32:49 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/16 17:49:27 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	print_uxx(unsigned int nb, int type, t_data_stock data)
-{
-	return (0);
-}
 
 void	ft_putnbr_base(long nb, char *base)
 {
@@ -34,4 +29,17 @@ void	ft_putnbr_base(long nb, char *base)
 		ft_putnbr_base(nb, base);
 	}
 	ft_putchar(c);
+}
+
+int	print_uxx(unsigned long nb, int type, t_data_stock data)
+{
+	char *base;
+
+	base = "0123456789";
+	if (type == 'x')
+		base = "0123456789abcdef";
+	else if (type == 'X')
+		base = "0123456789ABCDEF";
+	ft_putnbr_base(nb, base);
+	return (0);
 }

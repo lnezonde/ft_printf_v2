@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 12:41:46 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 17:05:08 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/16 18:05:16 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ typedef	struct
 int				ft_printf(const char *str, ...);
 void			ft_putchar(char c);
 int				ft_strlen(char *str);
+int				ft_abs(int n);
+void			ft_putstr(char *str, int l);
+void			print_zeros(int n, char c);
 
-int				print_uxx(unsigned int nb, int type, t_data_stock data);
+int				print_uxx(unsigned long nb, int type, t_data_stock data);
 int				print_c(char c, t_data_stock data);
 int				print_di(int nb, t_data_stock data);
 int				print_s(char *str, t_data_stock data);

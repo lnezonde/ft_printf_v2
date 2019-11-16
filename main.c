@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:17:31 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 18:23:15 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/16 18:12:47 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	main()
 {
-	ft_printf("%c", 't');
+	char *str;
+
+	str = "test";
+	ft_printf("ft_printf : [%*.*s]\n", 15, 3, str);
+	printf("printf :    [%*.*s]\n", 15, 3, str);
 	return (0);
 }
