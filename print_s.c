@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:57:03 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/16 18:11:36 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:49:59 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	print_s(char *str, t_data_stock data)
 {
 	int len;
 
+	if (str == NULL)
+		str = "(null)";
 	len = ft_strlen(str);
 	if (data.precision < len && data.precision != -1)
 		len = data.precision;

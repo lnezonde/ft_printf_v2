@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 12:48:58 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 17:03:55 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:18:07 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static int	multi_print(const char **str, va_list param)
 	if (data.type == 'd' || data.type == 'i')
 		return (print_di(va_arg(param, int), data));
 	if (data.type == 'u')
-		return (print_uxx(va_arg(param, unsigned int), 'u', data));
+		return (print_uxx(va_arg(param, unsigned int), data));
 	if (data.type == 'x')
-		return (print_uxx(va_arg(param, unsigned int), 'x', data));
+		return (print_uxx(va_arg(param, unsigned int), data));
 	if (data.type == 'X')
-		return (print_uxx(va_arg(param, unsigned int), 'X', data));
+		return (print_uxx(va_arg(param, unsigned int), data));
 	if (data.type == '%')
 		return (print_c('%', data));
 	return (0);

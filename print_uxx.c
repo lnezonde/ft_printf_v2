@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:49:58 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/16 17:49:27 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:27:07 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_putnbr_base(long nb, char *base)
 	ft_putchar(c);
 }
 
-int	print_uxx(unsigned long nb, int type, t_data_stock data)
+int	print_long(unsigned long nb, int type)
 {
 	char *base;
 
@@ -41,5 +41,28 @@ int	print_uxx(unsigned long nb, int type, t_data_stock data)
 	else if (type == 'X')
 		base = "0123456789ABCDEF";
 	ft_putnbr_base(nb, base);
+	return (0);
+}
+
+int	print_uxx(unsigned long nb, t_data_stock data)
+{
+	int len;
+
+	len = ft_nbr_size(nb, 16) - 1;
+	if (data.precision != -1)
+		data.zero = ' ';
+	if (data.precision > len)
+		len = data.precision - 1;
+	if (data.width > len && data.dir == '+')
+		print_zeros(data.width - len, data.zero);
+	if (data.precision > len)
+	{
+		len = ft_nbr_size(nb, 16) - 1;
+		print_zeros(data.precision - len, '0');
+		len = data.precision - 1;
+	}
+	print_long(nb, data.type);
+	if (data.width > len && data.dir == '-')
+		print_zeros(data.width - len, ' ');
 	return (0);
 }
