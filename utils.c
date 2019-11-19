@@ -6,13 +6,13 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:21:15 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 15:34:56 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:28:31 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_zeros(int n, char c)
+int		print_zeros(int n, char c)
 {
 	int i;
 
@@ -38,14 +38,6 @@ int		ft_strlen(char *str)
 	while (str && str[i])
 		i++;
 	return (i);
-
-}
-
-int		ft_abs(int n)
-{
-	if (n < 0)
-		n *= -1;
-	return (n);
 }
 
 void	ft_putstr(char *str, int l)

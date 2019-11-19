@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:56:28 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/15 18:20:18 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:57:44 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,19 @@ static int		which_width(const char **str, char *data_dir, va_list param)
 
 static int		which_precision(const char **str, va_list param)
 {
+	int precision;
+
+	precision = -1;
 	(*str)++;
 	if (**str > '9' && **str < '0')
 		return (0);
 	if (**str == '*')
 	{
 		(*str)++;
-		return (va_arg(param, int));
+		precision = va_arg(param, int);
+		if (precision < 0)
+			precision = -1;
+		return (precision);
 	}
 	return (which_nb(str));
 }

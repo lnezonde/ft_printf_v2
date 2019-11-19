@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:49:58 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 12:57:18 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:31:57 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_putnbr_base(long nb, char *base)
 	ft_putchar(c);
 }
 
-int	print_long(unsigned long nb, char type)
+int		print_long(unsigned long nb, char type)
 {
 	char *base;
 
@@ -44,14 +44,14 @@ int	print_long(unsigned long nb, char type)
 	return (0);
 }
 
-int	print_uxx(unsigned long nb, t_data_stock data)
+int		print_uxx(unsigned long nb, t_data_stock data)
 {
 	int len;
 
 	if (nb == 0 && data.precision == 0)
 	{
 		print_zeros(data.width + 1, ' ');
-		return (0);
+		return (uxx_len(nb, data));
 	}
 	len = ft_nbr_size(nb, data.type) - 1;
 	if (data.precision != -1)
@@ -69,5 +69,5 @@ int	print_uxx(unsigned long nb, t_data_stock data)
 	print_long(nb, data.type);
 	if (data.width > len && data.dir == '-')
 		print_zeros(data.width - len, ' ');
-	return (0);
+	return (uxx_len(nb, data));
 }

@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:00:11 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 15:47:49 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:34:16 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,8 @@ static void	ft_putnbr(long nb)
 
 static int	print_di_pos(int nb, t_data_stock data)
 {
-	int len;
-
-	len = ft_nbr_size_int(nb) - 1;
-	if (data.precision != -1)
-		data.zero = ' ';
-	if (data.precision > len)
-		len = data.precision - 1;
-	if (data.width > len && data.dir == '+')
-		print_zeros(data.width - len, data.zero);
-	if (data.precision > len)
-	{
-		len = ft_nbr_size_int(nb) - 1;
-		print_zeros(data.precision - len, '0');
-		len = data.precision - 1;
-	}
-	ft_putnbr(nb);
-	if (data.width > len && data.dir == '-')
-		print_zeros(data.width - len, ' ');
-	return (0);
+	print_uxx(nb, data);
+	return (di_len(nb, data));
 }
 
 static int	print_di_neg(int nb, t_data_stock data)
@@ -52,7 +35,7 @@ static int	print_di_neg(int nb, t_data_stock data)
 	add = 1;
 	if (data.width > data.precision)
 		add = 0;
-	len = ft_nbr_size_int(nb) -  add;
+	len = ft_nbr_size_int(nb) - add;
 	if (data.precision != -1)
 		data.zero = ' ';
 	if (data.precision > len)
@@ -72,18 +55,18 @@ static int	print_di_neg(int nb, t_data_stock data)
 	ft_putnbr(nb);
 	if (data.width > len && data.dir == '-')
 		print_zeros(data.width - len, ' ');
-	return (0);
+	return (di_len(nb, data));
 }
 
-int		print_di(int nb, t_data_stock data)
+int			print_di(int nb, t_data_stock data)
 {
 	if (nb == 0 && data.precision == 0)
 	{
 		print_zeros(data.width + 1, ' ');
-		return (0);
+		return (di_len(nb, data));
 	}
 	if (nb >= 0)
-		return(print_di_pos(nb , data));
+		return (print_di_pos(nb, data));
 	else
-		return(print_di_neg(nb , data));
+		return (print_di_neg(nb, data));
 }

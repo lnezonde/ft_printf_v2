@@ -13,6 +13,7 @@ SRC = ft_printf.c \
 	print_c.c \
 	print_uxx.c \
 	read_data.c \
+	return_val.c \
 	utils.c \
 
 OBJ = $(SRC:.c=.o)

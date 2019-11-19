@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 12:41:46 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 15:32:25 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:36:16 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,12 @@ int				print_di(int nb, t_data_stock data);
 int				print_s(char *str, t_data_stock data);
 int				print_p(char **ptr, t_data_stock data);
 
+int				s_len(char *str, t_data_stock data);
+int				c_len(t_data_stock data);
+int				p_len(char **ptr, t_data_stock data);
+int				uxx_len(unsigned long nb, t_data_stock data);
+int				di_len(int nb, t_data_stock data);
+
 t_data_stock	read_data(const char **str, va_list param);
+
 #endif

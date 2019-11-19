@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:00:29 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 12:28:18 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:01:28 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int			print_c(char c, t_data_stock data)
 	ft_putchar(c);
 	if (data.width > 1 && data.dir == '-')
 		print_zeros(data.width, ' ');
-	return (0);
+	return (c_len(data));
 }
