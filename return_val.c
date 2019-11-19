@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:04:10 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 18:33:26 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 19:12:24 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ int		p_len(char **ptr, t_data_stock data)
 	len = ft_nbr_size((unsigned long)ptr, 'x') + 2;
 	if (ptr == NULL)
 		len = 3;
+	if (ptr == NULL && data.precision == 0)
+		len--;
+	if (data.precision > len)
+		len += data.precision - len + 2;
 	if (data.width > len)
 		len += data.width - len;
 	return (len);
