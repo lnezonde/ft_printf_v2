@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:17:31 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 14:14:39 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:45:19 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main()
 	int i;
 
 	str = "test";
-	i = ft_printf("ft_printf : [%7d]\n", -17);
+	i = ft_printf("ft_printf : [%5.3d]\n", -48);
 	printf("%i\n", i);
-	i = printf("printf :    [%7d]\n", -17);
+	i = printf("printf :    [%5.3d]\n", -48);
 	printf("%i\n", i);
 	return (0);
 }

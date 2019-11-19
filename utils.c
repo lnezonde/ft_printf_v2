@@ -6,16 +6,23 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:21:15 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 12:13:30 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:34:56 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_zeros(int n, char c)
+int	print_zeros(int n, char c)
 {
+	int i;
+
+	i = 0;
 	while (n-- > 1)
+	{
 		ft_putchar(c);
+		i++;
+	}
+	return (i);
 }
 
 void	ft_putchar(char c)
@@ -59,12 +66,22 @@ int		ft_nbr_size(unsigned long nb, char type)
 	size_base = 10;
 	if (type == 'x' || type == 'X')
 		size_base = 16;
-
-	if (nb < 0)
-		i++;
 	while (nb / size_base != 0)
 	{
 		nb /= size_base;
+		i++;
+	}
+	return (i + 1);
+}
+
+int		ft_nbr_size_int(int nb)
+{
+	int i;
+
+	i = 0;
+	while (nb / 10 != 0)
+	{
+		nb /= 10;
 		i++;
 	}
 	return (i + 1);
