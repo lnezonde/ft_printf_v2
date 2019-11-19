@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 12:41:46 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/18 17:28:21 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 11:58:19 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int				ft_strlen(char *str);
 int				ft_abs(int n);
 void			ft_putstr(char *str, int l);
 void			print_zeros(int n, char c);
-int				ft_nbr_size(unsigned long nb, int size_base);
+int				ft_nbr_size(unsigned long nb, char type);
 int				print_uxx(unsigned long nb, t_data_stock data);
 
-int				print_long(unsigned long nb, int type);
+int				print_long(unsigned long nb, char type);
 int				print_c(char c, t_data_stock data);
 int				print_di(int nb, t_data_stock data);
 int				print_s(char *str, t_data_stock data);

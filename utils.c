@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:21:15 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/18 17:12:21 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 12:13:30 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,16 @@ void	ft_putstr(char *str, int l)
 		ft_putchar(str[i++]);
 }
 
-int		ft_nbr_size(unsigned long nb, int size_base)
+int		ft_nbr_size(unsigned long nb, char type)
 {
 	int i;
+	int size_base;
 
 	i = 0;
+	size_base = 10;
+	if (type == 'x' || type == 'X')
+		size_base = 16;
+
 	if (nb < 0)
 		i++;
 	while (nb / size_base != 0)

@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:57:03 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/18 16:49:59 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/19 11:51:02 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	print_s(char *str, t_data_stock data)
 	if (data.precision < len && data.precision != -1)
 		len = data.precision;
 	if (data.width > len && data.dir == '+')
-		print_zeros(data.width - len + 1, ' ');
+		print_zeros(data.width - len + 1, data.zero);
 	ft_putstr(str, len);
 	if (data.width > len && data.dir == '-')
 		print_zeros(data.width - len + 1, ' ');
