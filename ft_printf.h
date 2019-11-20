@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 12:41:46 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 17:36:16 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:27:53 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h> // a suprimer
 
 typedef	struct
 {
@@ -30,12 +29,12 @@ typedef	struct
 int				ft_printf(const char *str, ...);
 void			ft_putchar(char c);
 int				ft_strlen(char *str);
-int				ft_abs(int n);
 void			ft_putstr(char *str, int l);
 int				print_zeros(int n, char c);
 int				ft_nbr_size(unsigned long nb, char type);
 int				print_uxx(unsigned long nb, t_data_stock data);
 int				ft_nbr_size_int(int nb);
+char			istype(char c);
 
 int				print_long(unsigned long nb, char type);
 int				print_c(char c, t_data_stock data);

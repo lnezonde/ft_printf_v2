@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 18:21:15 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 16:28:31 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:16:37 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,6 @@ int		ft_nbr_size(unsigned long nb, char type)
 	while (nb / size_base != 0)
 	{
 		nb /= size_base;
-		i++;
-	}
-	return (i + 1);
-}
-
-int		ft_nbr_size_int(int nb)
-{
-	int i;
-
-	i = 0;
-	while (nb / 10 != 0)
-	{
-		nb /= 10;
 		i++;
 	}
 	return (i + 1);

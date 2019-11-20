@@ -6,19 +6,11 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:56:28 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 17:57:44 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:15:54 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static char		istype(char c)
-{
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'v'
-		|| c == 'u' || c == 'x' || c == 'X' || c == '%')
-		return (1);
-	return (0);
-}
 
 static int		which_nb(const char **str)
 {

@@ -6,7 +6,7 @@
 /*   By: lnezonde <lnezonde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:00:11 by lnezonde          #+#    #+#             */
-/*   Updated: 2019/11/19 18:34:16 by lnezonde         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:24:50 by lnezonde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ static int	print_di_pos(int nb, t_data_stock data)
 	return (di_len(nb, data));
 }
 
+static void	print_di_neg2(int len, t_data_stock data)
+{
+	if (data.precision == -1 && data.zero == '0')
+		ft_putchar('-');
+	if (data.width > len && data.dir == '+')
+		print_zeros(data.width - len, data.zero);
+	if (data.zero == ' ')
+		ft_putchar('-');
+}
+
 static int	print_di_neg(int nb, t_data_stock data)
 {
 	int len;
@@ -40,12 +50,7 @@ static int	print_di_neg(int nb, t_data_stock data)
 		data.zero = ' ';
 	if (data.precision > len)
 		len = data.precision - add;
-	if (data.precision == -1 && data.zero == '0')
-		ft_putchar('-');
-	if (data.width > len && data.dir == '+')
-		print_zeros(data.width - len, data.zero);
-	if (data.zero == ' ')
-		ft_putchar('-');
+	print_di_neg2(len, data);
 	if (data.precision > ft_nbr_size_int(nb))
 	{
 		len = ft_nbr_size_int(nb) - 1;
